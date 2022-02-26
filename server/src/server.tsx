@@ -1,14 +1,13 @@
 import express from 'express';
 import session from 'express-session';
-import cors from 'cors';
 
 const app = express();
+
+// Za cross-site koristim netlify proxy pa misli da su na istoj stranici
 
 // Bitno dodati jer je prek heroku ima proxy ispred koji je https, a sa node serverom
 // razgovara sa http, pa je bitno staviti jer inace ne mozemo cookie slat
 app.set("trust proxy", 1);
-// Bitno jer frontend i backend nisu na istoj domeni (cross-site)
-//app.use(cors({ origin: true, credentials: true }));
 // Use new express middleware instead of bodyParser package (for reqeust.body - json data), inace je body prazan uvijek
 app.use(express.json());
 
@@ -21,7 +20,6 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24, // cookie is valid for 24h
         secure: process.env.NODE_ENV === 'production',    // secure mora biti https konekcija
         httpOnly: process.env.NODE_ENV === 'production',  // don't allow cookies to be read with javascript on the client
-        sameSite: 'none',       // Treba dodati za Chrome inace se ne sprema cookie!!!
     }
 }));
 
