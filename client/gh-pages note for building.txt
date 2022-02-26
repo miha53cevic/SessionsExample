@@ -1,1 +1,0 @@
-Za deploy na github pages treba staviti basepath kao "/<REPO_NAME>/" ili koristit HashRouter (nije testirano)

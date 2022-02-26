@@ -7,12 +7,14 @@ import { Route, Routes, HashRouter } from 'react-router-dom';
 
 function App() {
     return (
-        <HashRouter>
+        // Using HashRouter because GithubPages returns 404 not found
+        // when trying to access links directly otherwise
+        <HashRouter basename='/'>
             <React.StrictMode>
-                    <Routes>
-                        <Route path='/' element={<Index />} />
-                        <Route path='/user' element={<User />} />
-                    </Routes>
+                <Routes>
+                    <Route path='/' element={<Index />} />
+                    <Route path='/user' element={<User />} />
+                </Routes>
             </React.StrictMode>
         </HashRouter>
     );

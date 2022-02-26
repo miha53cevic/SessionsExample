@@ -8,29 +8,24 @@ function User() {
     const [user, setUser] = useState<{ username: string } | undefined>();
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API}/user`,
-            {
-                withCredentials: true
-            }
-        ).then((res) => {
-            setUser(res.data);
-        })
-        .catch(error => {
-            route('/');
-        });
+
+        const getUser = async () => {
+            try {
+                const res = await axios.get(`${import.meta.env.VITE_API}/user`, { withCredentials: true });
+                // Ako user ima session salji ga na /user inace ne radi nikaj
+                if (res.status === 200) setUser(res.data);
+                else console.error(res);
+            } catch (error) { route('/'); }
+        };
+        getUser();
     }, []);
 
-    const handleDelete = () => {
-        axios.get(`${import.meta.env.VITE_API}/logout`,
-            {
-                withCredentials: true
-            }
-        ).then((res) => {
-            route('/');
-        })
-        .catch(error => {
-            console.error(error);
-        });
+    const handleDelete = async () => {
+        try {
+            const res = await axios.get(`${import.meta.env.VITE_API}/logout`, { withCredentials: true });
+            if (res.status === 200) route('/');
+            else console.error(res);
+        } catch (error) { console.error(error); }
     };
 
     return (
