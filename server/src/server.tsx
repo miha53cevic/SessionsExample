@@ -20,7 +20,7 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 60 * 24, // cookie is valid for 24h
         secure: process.env.NODE_ENV === 'production',
-        httpOnly: false,  // don't allow cookies to be read with javascript on the client
+        httpOnly: process.env.NODE_ENV === 'production',  // don't allow cookies to be read with javascript on the client
     }
 }));
 
