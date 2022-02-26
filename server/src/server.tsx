@@ -3,6 +3,9 @@ import session from 'express-session';
 import cors from 'cors';
 
 const app = express();
+
+// Bitno dodati jer je prek heroku ima proxy ispred koji je https, a sa node serverom
+// razgovara sa http, pa je bitno staviti jer inace ne mozemo cookie slat
 app.set("trust proxy", 1);
 
 app.use(cors({ origin: true, credentials: true }));
