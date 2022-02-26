@@ -7,7 +7,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
 function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename='/SessionsExample/'>
             <React.StrictMode>
                     <Routes>
                         <Route path='/' element={<Index />} />
