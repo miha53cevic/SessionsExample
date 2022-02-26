@@ -3,6 +3,7 @@ import session from 'express-session';
 import cors from 'cors';
 
 const app = express();
+app.set("trust proxy", 1);
 
 app.use(cors({ origin: true, credentials: true }));
 // Use new express middleware instead of bodyParser package (for reqeust.body - json data)
@@ -15,8 +16,8 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24, // cookie is valid for 24h
-        secure: true,
-        httpOnly: true,  // don't allow cookies to be read with javascript on the client
+        secure: process.env.NODE_ENV === 'production',
+        httpOnly: false,  // don't allow cookies to be read with javascript on the client
     }
 }));
 
