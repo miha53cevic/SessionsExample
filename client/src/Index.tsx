@@ -24,7 +24,7 @@ function Index() {
     const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:3001/login', { username: usernameRef.current?.value },
+            const res = await axios.post(`${import.meta.env.VITE_API}/login`, { username: usernameRef.current?.value },
                 {
                     withCredentials: true
                 }
