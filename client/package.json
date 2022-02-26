@@ -1,7 +1,7 @@
 {
   "name": "client",
   "private": true,
-  "homepage": "http://miha53cevic.github.io/SessionsExampleClient",
+  "homepage": "http://miha53cevic.github.io/SessionsExample",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
