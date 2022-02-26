@@ -55,6 +55,18 @@ app.get('/user', (req, res) => {
     else return res.send({ username: req.session.username });
 });
 
+app.get('/logout', (req, res) => {
+    if (!req.session.username) {
+        res.status(401).send({ error: "Not logged in!" });
+        return;
+    } else {
+        req.session.destroy((err) => {
+            console.log(err);
+            res.sendStatus(200);
+        })
+    };
+});
+
 // Default route (404 not found)
 app.use((req, res) => {
     res.sendStatus(404);
