@@ -9,7 +9,7 @@ function App() {
     return (
         // Using HashRouter because GithubPages returns 404 not found
         // when trying to access links directly otherwise
-        <HashRouter basename='/'>
+        <HashRouter>
             <React.StrictMode>
                 <Routes>
                     <Route path='/' element={<Index />} />
