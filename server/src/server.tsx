@@ -13,7 +13,7 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 
 app.use(session({
-    name: 'sid',    // cookie se salje s vrijednosti sid(session id)
+    name: 'sessionid',    // cookie se salje s vrijednosti sid(session id)
     secret: 'the greatest secret of them all',
     resave: false,  // uvijek ponovno spremi session iako se nije promjenil nijedan podatak
     saveUninitialized: false,   // spremi session iako jos nije nista promjenjeno na njoj, primjer korisnik se jos nije logiral, a i dalje ga pratimo prije
@@ -22,7 +22,7 @@ app.use(session({
         secure: process.env.NODE_ENV === 'production',    // secure mora biti https konekcija
         httpOnly: process.env.NODE_ENV === 'production',  // don't allow cookies to be read with javascript on the client
         sameSite: 'none',       // Treba dodati za Chrome inace se ne sprema cookie!!!
-    }
+    },
 }));
 
 // Index route
