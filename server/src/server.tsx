@@ -19,7 +19,7 @@ app.use(session({
     saveUninitialized: false,   // spremi session iako jos nije nista promjenjeno na njoj, primjer korisnik se jos nije logiral, a i dalje ga pratimo prije
     cookie: {
         maxAge: 1000 * 60 * 60 * 24, // cookie is valid for 24h
-        secure: false,    // secure mora biti https konekcija
+        secure: process.env.NODE_ENV === 'production',    // secure mora biti https konekcija
         httpOnly: process.env.NODE_ENV === 'production',  // don't allow cookies to be read with javascript on the client
     }
 }));
