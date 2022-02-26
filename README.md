@@ -2,4 +2,5 @@
 
 using express and express-sessions
 
-[Client](http://miha53cevic.github.io/SessionsExample)
+[Client](https://sessions-example.netlify.app)
+[Backend](https://sessions-example-be.herokuapp.com/)
