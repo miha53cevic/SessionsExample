@@ -2,4 +2,4 @@
 
 using express and express-sessions
 
-[Client](http://miha53cevic.github.io/SessionsExampleClient)
+[Client](http://miha53cevic.github.io/SessionsExample)
