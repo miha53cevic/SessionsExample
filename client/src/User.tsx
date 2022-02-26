@@ -8,7 +8,7 @@ function User() {
     const [user, setUser] = useState<{ username: string } | undefined>();
 
     useEffect(() => {
-        axios.get('http://localhost:3001/user',
+        axios.get(`${import.meta.env.VITE_API}/user`,
             {
                 withCredentials: true
             }

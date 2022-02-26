@@ -6,7 +6,7 @@ function Index() {
     const route = useNavigate();
 
     React.useEffect(() => {
-        axios.get('http://localhost:3001/user',
+        axios.get(`${import.meta.env.VITE_API}/user`,
             {
                 withCredentials: true
             }
