@@ -21,7 +21,7 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24, // cookie is valid for 24h
         secure: process.env.NODE_ENV === 'production',    // secure mora biti https konekcija
         httpOnly: process.env.NODE_ENV === 'production',  // don't allow cookies to be read with javascript on the client
-        sameSite: 'none',
+        sameSite: 'none',       // Treba dodati za Chrome inace se ne sprema cookie!!!
     }
 }));
 
